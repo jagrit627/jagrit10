@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEB Computer Science - Grade 11</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for Theme Consistency */
+        :root {
+            --primary-color: #1e90ff;
+            --secondary-color: #ff6347;
+            --background-color: #f0f4f8;
+            --text-color: #2c3e50;
+            --accent-color: #ecf0f1;
+            --toc-width: 280px;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Main Container */
+        #main {
+            display: flex;
+            max-width: 1300px;
+            margin: 30px auto;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        /* Table of Contents (TOC) */
+        #TOC {
+            width: var(--toc-width);
+            background: linear-gradient(135deg, var(--primary-color), #4682b4);
+            color: #fff;
+            padding: 25px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+        }
+
+        #TOC h2 {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        #tocul {
+            list-style: none;
+        }
+
+        #tocul li {
+            margin: 15px 0;
+        }
+
+        #tocul a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s, padding-left 0.3s;
+        }
+
+        #tocul a:hover {
+            color: var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        /* Main Content */
+        #details {
+            margin-left: var(--toc-width);
+            padding: 50px;
+            flex: 1;
+            background: #fff;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        #details h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        #details section {
+            margin-bottom: 70px;
+            padding: 25px;
+            background: var(--accent-color);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        #details section:hover {
+            transform: translateY(-5px);
+        }
+
+        #details h2 {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        #details h3 {
+            font-size: 1.6em;
+            margin: 25px 0 15px;
+            color: var(--secondary-color);
+        }
+
+        #details p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        #details ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        #details ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Code Block Styling */
+        .code-block {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid var(--secondary-color);
+            margin-bottom: 20px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Image Placeholder */
+        .image-placeholder {
+            background: #dfe6e9;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #636e72;
+            border-radius: 8px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #main {
+                flex-direction: column;
+            }
+
+            #TOC {
+                position: static;
+                width: 100%;
+                height: auto;
+                border-radius: 0;
+            }
+
+            #details {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            #details h1 {
+                font-size: 2em;
+            }
+
+            #details h2 {
+                font-size: 1.6em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <!-- Table of Contents -->
+        <div id="TOC">
+            <h2>Topics</h2>
+            <ul id="tocul">
+                <li><a href="#computer-system">Computer System</a></li>
+                <li><a href="#number-system">Number System and Boolean Logic</a></li>
+                <li><a href="#software-os">Computer Software and Operating System</a></li>
+                <li><a href="#application-packages">Application Packages</a></li>
+                <li><a href="#programming-concepts">Programming Concepts and Logic</a></li>
+                <li><a href="#programming-c">Programming in C</a></li>
+                <li><a href="#web-technologies">Web Technologies (HTML + CSS)</a></li>
+                <li><a href="#multimedia">Multimedia</a></li>
+                <li><a href="#security-cyberlaw">Information Security and Cyber Law</a></li>
+            </ul>
+        </div>
+
+        <!-- Course Details -->
+        <div id="details">
+            <h1>NEB Computer Science - Grade 11</h1>
+
+            <!-- Chapter 1: Computer System -->
+            <section id="computer-system">
+                <h2>Computer System</h2>
+                <h3>Introduction</h3>
+                <p>A computer system integrates hardware and software to process data efficiently. Hardware includes tangible components like the CPU, while software comprises instructions that drive these components. This chapter explores the synergy between these elements, laying the foundation for understanding modern computing.</p>
+                <h3>Hardware Components</h3>
+                <p>Hardware is the physical backbone of a computer system, each part serving a unique purpose:</p>
+                <ul>
+                    <li><strong>CPU:</strong> The Central Processing Unit, or "brain," executes program instructions via the fetch-decode-execute cycle. Modern CPUs (e.g., Intel i5) feature multiple cores for multitasking.</li>
+                    <li><strong>Memory (RAM):</strong> Random Access Memory temporarily stores data for quick CPU access. For example, 8GB RAM supports smooth multitasking in a school PC.</li>
+                    <li><strong>Storage:</strong> HDDs offer high-capacity, cost-effective storage, while SSDs provide speed. A 256GB SSD might store your OS, boosting boot times.</li>
+                    <li><strong>I/O Devices:</strong> Input devices (e.g., keyboards) send data to the CPU, while output devices (e.g., monitors) display results.</li>
+                </ul>
+                <div class="image-placeholder">Diagram: Computer Hardware Layout</div>
+                <h3>Software Components</h3>
+                <p>Software directs hardware operations and is divided into two categories:</p>
+                <ul>
+                    <li><strong>System Software:</strong> Operating systems like Windows manage resources, enabling software-hardware interaction.</li>
+                    <li><strong>Application Software:</strong> Programs like Microsoft Word perform specific tasks, relying on the OS.</li>
+                </ul>
+                <p>This distinction aids in troubleshooting and system optimization.</p>
+                <h3>Data Representation</h3>
+                <p>Computers use binary (0s and 1s) to represent data:</p>
+                <ul>
+                    <li><strong>Numbers:</strong> Binary encodes integers (e.g., 5 = 101).</li>
+                    <li><strong>Text:</strong> ASCII assigns binary codes to characters (e.g., A = 65).</li>
+                    <li><strong>Images:</strong> Pixels store color values in binary.</li>
+                </ul>
+                <p>Understanding this is key to data processing and storage concepts.</p>
+            </section>
+
+            <!-- Chapter 2: Number System and Boolean Logic -->
+            <section id="number-system">
+                <h2>Number System and Boolean Logic</h2>
+                <h3>Number Systems</h3>
+                <p>Computers use binary, but humans often employ decimal, octal, and hexadecimal systems:</p>
+                <ul>
+                    <li><strong>Binary:</strong> 10 = 1010 (8+2).</li>
+                    <li><strong>Octal:</strong> 10 in decimal = 12 in octal.</li>
+                    <li><strong>Hexadecimal:</strong> 10 = A in hex, used in color codes (e.g., #FFFFFF).</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>Decimal 25 to Binary:
+25 ÷ 2 = 12 r1
+12 ÷ 2 = 6 r0
+6 ÷ 2 = 3 r0
+3 ÷ 2 = 1 r1
+1 ÷ 2 = 0 r1
+Result: 11001</code></pre>
+                </div>
+                <h3>Boolean Algebra</h3>
+                <p>Boolean algebra uses AND, OR, and NOT operations for logical processing:</p>
+                <ul>
+                    <li><strong>AND:</strong> True if both inputs are true.</li>
+                    <li><strong>OR:</strong> True if at least one input is true.</li>
+                    <li><strong>NOT:</strong> Inverts the input.</li>
+                </ul>
+                <p>It’s foundational for circuit design and programming logic.</p>
+                <h3>Logic Gates and Truth Tables</h3>
+                <p>Logic gates implement Boolean operations:</p>
+                <ul>
+                    <li><strong>AND Gate:</strong> 1 AND 1 = 1.</li>
+                    <li><strong>OR Gate:</strong> 0 OR 1 = 1.</li>
+                    <li><strong>XOR Gate:</strong> 1 XOR 0 = 1.</li>
+                </ul>
+                <p>Truth tables map inputs to outputs, e.g., AND gate: 1,1 → 1; 0,1 → 0.</p>
+                <div class="image-placeholder">Diagram: Logic Gates</div>
+            </section>
+
+            <!-- Chapter 3: Computer Software and Operating System -->
+            <section id="software-os">
+                <h2>Computer Software and Operating System</h2>
+                <h3>Types of Software</h3>
+                <p>Software is categorized based on its function:</p>
+                <ul>
+                    <li><strong>System Software:</strong> Manages hardware (e.g., Linux).</li>
+                    <li><strong>Application Software:</strong> User-focused tools (e.g., Excel).</li>
+                    <li><strong>Utility Software:</strong> Maintenance tools (e.g., antivirus).</li>
+                </ul>
+                <h3>Operating Systems</h3>
+                <p>An OS is system software that:</p>
+                <ul>
+                    <li>Manages memory and processes.</li>
+                    <li>Facilitates hardware communication.</li>
+                    <li>Examples: Windows 10, Ubuntu.</li>
+                </ul>
+                <p>Windows dominates desktops, while Linux excels in servers.</p>
+                <div class="image-placeholder">Diagram: OS Architecture</div>
+                <h3>Functions and Features</h3>
+                <p>OS features include:</p>
+                <ul>
+                    <li><strong>Multitasking:</strong> Running multiple apps.</li>
+                    <li><strong>File Management:</strong> Organizing data.</li>
+                    <li><strong>Security:</strong> User authentication.</li>
+                </ul>
+                <p>Understanding OS roles enhances system efficiency.</p>
+            </section>
+
+            <!-- Chapter 4: Application Packages -->
+            <section id="application-packages">
+                <h2>Application Packages</h2>
+                <h3>Word Processing</h3>
+                <p>Tools like MS Word enable document creation:</p>
+                <ul>
+                    <li>Formatting text and tables.</li>
+                    <li>Spell-check and templates.</li>
+                    <li>Use case: Writing reports.</li>
+                </ul>
+                <h3>Spreadsheets</h3>
+                <p>Excel manages data with:</p>
+                <ul>
+                    <li>Formulas (e.g., =SUM(A1:A10)).</li>
+                    <li>Charts for visualization.</li>
+                    <li>Applications: Budget tracking.</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>=IF(A1>10, "High", "Low")</code></pre>
+                </div>
+                <h3>Presentations</h3>
+                <p>PowerPoint enhances communication:</p>
+                <ul>
+                    <li>Slide transitions and animations.</li>
+                    <li>Embedding media.</li>
+                    <li>Use case: Class presentations.</li>
+                </ul>
+                <div class="image-placeholder">Sample Slide Layout</div>
+            </section>
+
+            <!-- Chapter 5: Programming Concepts and Logic -->
+            <section id="programming-concepts">
+                <h2>Programming Concepts and Logic</h2>
+                <h3>Basics of Programming</h3>
+                <p>Programming involves:</p>
+                <ul>
+                    <li><strong>Algorithms:</strong> Step-by-step solutions.</li>
+                    <li><strong>Flowcharts:</strong> Visual logic maps.</li>
+                    <li><strong>Pseudocode:</strong> Simplified code outlines.</li>
+                </ul>
+                <h3>Control Structures</h3>
+                <p>Structures direct program flow:</p>
+                <ul>
+                    <li><strong>Sequence:</strong> Linear execution.</li>
+                    <li><strong>Selection:</strong> If-else decisions.</li>
+                    <li><strong>Iteration:</strong> Loops (e.g., for, while).</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>if (x > 0) {
+    print("Positive");
+} else {
+    print("Negative or Zero");
+}</code></pre>
+                </div>
+                <h3>Logic Development</h3>
+                <p>Logic skills involve:</p>
+                <ul>
+                    <li>Breaking problems into steps.</li>
+                    <li>Testing and debugging.</li>
+                    <li>Example: Sorting numbers.</li>
+                </ul>
+                <div class="image-placeholder">Flowchart: Decision Making</div>
+            </section>
+
+            <!-- Chapter 6: Programming in C -->
+            <section id="programming-c">
+                <h2>Programming in C</h2>
+                <h3>Introduction to C</h3>
+                <p>C is a structured language:</p>
+                <ul>
+                    <li>Low-level control with high-level syntax.</li>
+                    <li>Used in OS and embedded systems.</li>
+                    <li>Basic syntax: variables, functions.</li>
+                </ul>
+                <h3>Key Features</h3>
+                <p>C includes:</p>
+                <ul>
+                    <li><strong>Data Types:</strong> int, float, char.</li>
+                    <li><strong>Pointers:</strong> Memory address management.</li>
+                    <li><strong>Loops and Conditions:</strong> Flow control.</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>#include <stdio.h>
+int main() {
+    int x = 10;
+    printf("Value: %d\n", x);
+    return 0;
+}</code></pre>
+                </div>
+                <h3>Program Examples</h3>
+                <p>Examples include:</p>
+                <ul>
+                    <li>Fibonacci series.</li>
+                    <li>Factorial calculation.</li>
+                    <li>Array operations.</li>
+                </ul>
+            </section>
+
+            <!-- Chapter 7: Web Technologies (HTML + CSS) -->
+            <section id="web-technologies">
+                <h2>Web Technologies (HTML + CSS)</h2>
+                <h3>HTML Basics</h3>
+                <p>HTML structures web content:</p>
+                <ul>
+                    <li>Tags: <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>.</li>
+                    <li>Attributes: <code>id</code>, <code>class</code>.</li>
+                    <li>Example: Simple webpage.</li>
+                </ul>
+                <h3>CSS Styling</h3>
+                <p>CSS enhances visuals:</p>
+                <ul>
+                    <li>Selectors and properties.</li>
+                    <li>Flexbox for layouts.</li>
+                    <li>Animations for interactivity.</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code>&lt;div style="color: blue;"&gt;Hello&lt;/div&gt;</code></pre>
+                </div>
+                <h3>Building a Page</h3>
+                <p>Steps include:</p>
+                <ul>
+                    <li>Structuring with HTML.</li>
+                    <li>Styling with CSS.</li>
+                    <li>Testing responsiveness.</li>
+                </ul>
+                <div class="image-placeholder">Sample Webpage Layout</div>
+            </section>
+
+            <!-- Chapter 8: Multimedia -->
+            <section id="multimedia">
+                <h2>Multimedia</h2>
+                <h3>Multimedia Elements</h3>
+                <p>Multimedia combines:</p>
+                <ul>
+                    <li><strong>Text:</strong> Information display.</li>
+                    <li><strong>Images:</strong> Visual appeal.</li>
+                    <li><strong>Audio/Video:</strong> Engagement.</li>
+                </ul>
+                <h3>Tools and Formats</h3>
+                <p>Common tools:</p>
+                <ul>
+                    <li>Photoshop for images.</li>
+                    <li>Audacity for audio.</li>
+                    <li>Formats: MP4, JPEG.</li>
+                </ul>
+                <h3>Applications</h3>
+                <p>Uses include:</p>
+                <ul>
+                    <li>Educational videos.</li>
+                    <li>Interactive presentations.</li>
+                    <li>Web design enhancement.</li>
+                </ul>
+                <div class="image-placeholder">Multimedia Example</div>
+            </section>
+
+            <!-- Chapter 9: Information Security and Cyber Law -->
+            <section id="security-cyberlaw">
+                <h2>Information Security and Cyber Law</h2>
+                <h3>Security Concepts</h3>
+                <p>Security protects data:</p>
+                <ul>
+                    <li><strong>Threats:</strong> Viruses, hacking.</li>
+                    <li><strong>Measures:</strong> Firewalls, encryption.</li>
+                    <li>Importance: Privacy.</li>
+                </ul>
+                <h3>Cyber Laws</h3>
+                <p>Laws govern digital activity:</p>
+                <ul>
+                    <li>Nepal’s Cyber Law: IT Act.</li>
+                    <li>Penalties for cybercrimes.</li>
+                    <li>Ethics in computing.</li>
+                </ul>
+                <h3>Best Practices</h3>
+                <p>Stay secure by:</p>
+                <ul>
+                    <li>Using strong passwords.</li>
+                    <li>Avoiding phishing scams.</li>
+                    <li>Regular updates.</li>
+                </ul>
+                <div class="image-placeholder">Security Diagram</div>
+            </section>
+        </div>
+    </div>
+<div class="footer">
+        &copy; 2025 Computer Science Project - Designed with ❤️ by Jagrit Prasad Lamichhaane
+    </div>
+</body>
+</html>
